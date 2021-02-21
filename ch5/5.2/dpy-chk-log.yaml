@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpy-chk-log
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dpy-chk-log
+  template:
+    metadata:
+      labels:
+        app: dpy-chk-log
+    spec:
+      containers:
+      - name: dpy-chk-log
+        image: sysnet4admin/chk-log
+        volumeMounts:
+        - name: nfs-vol
+          mountPath: /audit
+      volumes:
+      - name: nfs-vol
+        nfs:
+          server: 192.168.1.10
+          path: /nfs_shared/log 

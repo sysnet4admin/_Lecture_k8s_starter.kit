@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: del-pod
+  name: del-pod
+spec:
+  containers:
+  - image: nginx
+    name: del-pod

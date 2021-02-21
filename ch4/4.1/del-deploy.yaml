@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: del-deploy
+  name: del-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: del-deploy
+  template:
+    metadata:
+      labels:
+        app: del-deploy
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
