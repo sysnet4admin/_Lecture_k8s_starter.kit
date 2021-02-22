@@ -1,0 +1,9 @@
+kubectl delete service chk-hn
+kubectl delete service lb-chk-hn
+kubectl delete service nginx 
+
+kubectl delete deployment chk-hn
+kubectl delete deployment deploy-nginx 
+kubectl delete deployment nginx 
+
+kubectl delete -f ~/_Lecture_k8s.starterkit/ch2/2.4/metallb.yaml
