@@ -1,3 +1,5 @@
+kubectl delete deployment del-deploy 
+
 ~/_Lecture_k8s.starterkit/ch5/5.2/nfs-exporter.sh log 
 cat /etc/exports
 

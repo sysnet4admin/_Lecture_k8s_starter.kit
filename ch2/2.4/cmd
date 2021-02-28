@@ -1,13 +1,11 @@
-kubectl create deployment chk-hn --image=sysnet4admin/chk-hn
-kubectl scale deployment chk-hn --replicas=3
-
-kubectl get pods -o wide 
-
-kubectl expose deployment chk-hn --type=NodePort --port=80
+kubectl expose deployment deploy-nginx --type=NodePort --port=80
 kubectl get services 
 
-cat ~/_Lecture_k8s.starterkit/ch2/2.4/metallb.yaml
 kubectl apply -f ~/_Lecture_k8s.starterkit/ch2/2.4/metallb.yaml
 
-kubectl expose deployment chk-hn --type=LoadBalancer --port=80 --name=lb-chk-hn
+kubectl create deployment chk-hn --image=sysnet4admin/chk-hn
+kubectl scale deployment chk-hn --replicas=3
+kubectl get pods -o wide 
+
+kubectl expose deployment chk-hn --type=LoadBalancer --port=80
 kubectl get services 
