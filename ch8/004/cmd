@@ -1,8 +1,3 @@
-kubectl run nginx --image=nginx
-kubectl get pod 
-kubectl expose pod nginx --type=NodePort --port=80
-kubectl get services
-
 kubectl create deployment chk-hn --image=sysnet4admin/chk-hn
 kubectl get pods
 kubectl scale deployment chk-hn --replicas=3
