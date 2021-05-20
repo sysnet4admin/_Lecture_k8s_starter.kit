@@ -26,6 +26,6 @@ echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
 # git clone k8s-code
-git clone https://github.com/sysnet4admin/_Lecture_k8s.starterkit.git
-mv /home/vagrant/_Lecture_k8s.starterkit $HOME
-find $HOME/_Lecture_k8s.starterkit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
+mv /home/vagrant/_Lecture_k8s_starter.kit $HOME
+find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
