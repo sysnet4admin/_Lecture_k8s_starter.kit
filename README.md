@@ -4,6 +4,15 @@
 <img src="https://cdn.inflearn.com/public/files/courses/326651/0f14d4e6-adbe-4138-a373-14da74deb178/326651-kor.png" width="400">
 </a>
 
+## 목차 
+- ch1: 쿠버네티스 환경 구성 
+- ch2: 배포를 통한 쿠버네티스 체험 
+- ch3: 쿠버네티스 인사이드 
+- ch4: 문제를 통해 배우는 쿠버네티스 
+- ch5: 쿠버네티스 오브젝트 
+- ch6: 쿠버네티스 Tips
+- ch7: Closing - 강의 마무리 및 다음 강의 소개 (+쿠버네티스 공부법)
+- ch8: 보강수업 
 
 ### Repo(레포)를 다시 내려받으신다면? 아래의 3개 명령줄을 실행하세요 :) 
 ```bash 
