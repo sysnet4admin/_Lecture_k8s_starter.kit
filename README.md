@@ -15,7 +15,6 @@
 - ch8: 보강수업 
 
 ### Repo(레포)를 다시 내려받으신다면? ## 아래의 3개 명령줄을 실행하세요 :) 
-##
 ```bash 
 rm -rf $HOME/_Lecture_k8s_starter.kit 
 git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Lecture_k8s_starter.kit
