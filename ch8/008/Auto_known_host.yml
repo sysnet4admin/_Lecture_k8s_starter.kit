@@ -1,0 +1,16 @@
+---
+- hosts: nodes
+  connection: local
+  serial: 1
+  gather_facts: no
+
+  tasks:
+  - command: /usr/bin/ssh-keyscan -t ecdsa {{ ansible_host }}
+    register: keyscan
+
+  - lineinfile:
+      name=~/.ssh/known_hosts
+      create=yes
+      line={{ item }}
+    with_items:
+      - "{{ keyscan.stdout_lines }}"
