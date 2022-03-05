@@ -29,3 +29,12 @@ echo 'complete -F __start_kubectl k' >> ~/.bashrc
 git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
 mv /home/vagrant/_Lecture_k8s_starter.kit $HOME
 find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+
+# make rerepo-k8s-starter.kit and put permission
+cat <<EOF > /usr/local/bin/rerepo-k8s-starter.kit
+#!/usr/bin/env bash
+rm -rf $HOME/_Lecture_k8s_starter.kit 
+git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Lecture_k8s_starter.kit
+find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+EOF
+chmod 700 /usr/local/bin/rerepo-k8s-starter.kit
