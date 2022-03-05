@@ -14,9 +14,15 @@
 - ch7: Closing - 강의 마무리 및 다음 강의 소개 (+쿠버네티스 공부법)
 - ch8: 보강수업 
 
-### Repo(레포)를 다시 내려받으신다면? 아래의 3개 명령줄을 실행하세요 :) 
+***
+### Repo(레포)를 다시 내려받으신다면? 아래의 명령을 실행하세요 :) 
 ```bash 
-rm -rf $HOME/_Lecture_k8s_starter.kit 
-git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Lecture_k8s_starter.kit
-find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
+[root@m-k8s ~]# rerepo-k8s-starter.kit
+Cloning into '/root/_Lecture_k8s_starter.kit'...
+remote: Enumerating objects: 323, done.
+remote: Counting objects: 100% (323/323), done.
+remote: Compressing objects: 100% (224/224), done.
+remote: Total 323 (delta 118), reused 257 (delta 54), pack-reused 0
+Receiving objects: 100% (323/323), 59.66 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (118/118), done.
 ```
