@@ -1,0 +1,43 @@
+---
+- hosts: master
+  gather_facts: no
+  vars:
+    k8s-ver: 1.21.10
+
+  tasks:
+  - name: kubeadm upgrade to v{{ k8s-ver }}
+    command: "yum upgrade kubeadm-{{ k8s-ver }} -y"
+
+  - name: kubernetes master node upgrade v{{ k8s-ver }}
+    command: "kubeadm upgrade apply {{ k8s-ver }} -y"
+
+  - name: kubelet && kubectl upgrade to v{{ k8s-ver }} 
+    command: "yum upgrade kubelet-{{ k8s-ver }} kubectl-{{ k8s-ver }} -y"
+  
+  - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: kubelet 
+
+---
+- hosts: worker
+  gather_facts: no
+  vars:
+    k8s-ver: 1.21.10
+
+  tasks:
+  - name: kubeadm upgrade to v{{ k8s-ver }}
+    command: "yum upgrade kubeadm-{{ k8s-ver }} -y"
+
+  - name: kubernetes worker nodes upgrade v{{ k8s-ver }}
+    command: "kubeadm upgrade node"
+
+  - name: kubelet && kubectl upgrade to v{{ k8s-ver }} 
+    command: "yum upgrade kubelet-{{ k8s-ver }} kubectl-{{ k8s-ver }} -y"
+  
+  - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: kubelet 
