@@ -2,42 +2,58 @@
 - hosts: master
   gather_facts: no
   vars:
-    k8s-ver: 1.21.10
+    k8sver: 1.21.10
 
   tasks:
-  - name: kubeadm upgrade to v{{ k8s-ver }}
-    command: "yum upgrade kubeadm-{{ k8s-ver }} -y"
+# original code 
+#  - name: kubeadm upgrade to v{{ k8sver }}
+#    command: "yum upgrade kubeadm-{{ k8sver }} -y"
+  - name: kubeadm upgrade to v{{ k8sver }}
+    yum:
+      name: kubeadm-{{ k8sver }}
+      state: present
 
-  - name: kubernetes master node upgrade v{{ k8s-ver }}
-    command: "kubeadm upgrade apply {{ k8s-ver }} -y"
+  - name: kubernetes master node upgrade v{{ k8sver }}
+    command: "kubeadm upgrade apply {{ k8sver }} -y"
 
-  - name: kubelet && kubectl upgrade to v{{ k8s-ver }} 
-    command: "yum upgrade kubelet-{{ k8s-ver }} kubectl-{{ k8s-ver }} -y"
-  
+#  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+#    command: "yum upgrade kubelet-{{ k8sver }} kubectl-{{ k8sver }} -y"
+  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+    yum:
+      name:
+        - kubelet-{{ k8sver }}
+        - kubectl-{{ k8sver }}
+      state: present
+    
   - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
     ansible.builtin.systemd:
       state: restarted
       daemon_reload: yes
-      name: kubelet 
+      name: kubelet
 
----
 - hosts: worker
   gather_facts: no
   vars:
-    k8s-ver: 1.21.10
+    k8sver: 1.21.10
 
   tasks:
-  - name: kubeadm upgrade to v{{ k8s-ver }}
-    command: "yum upgrade kubeadm-{{ k8s-ver }} -y"
+  - name: kubeadm upgrade to v{{ k8sver }}
+    yum:
+      name: kubeadm-{{ k8sver }}
+      state: present
 
-  - name: kubernetes worker nodes upgrade v{{ k8s-ver }}
+  - name: kubernetes worker nodes upgrade v{{ k8sver }}
     command: "kubeadm upgrade node"
 
-  - name: kubelet && kubectl upgrade to v{{ k8s-ver }} 
-    command: "yum upgrade kubelet-{{ k8s-ver }} kubectl-{{ k8s-ver }} -y"
-  
+  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+    yum:
+      name:
+        - kubelet-{{ k8sver }}
+        - kubectl-{{ k8sver }}
+      state: present
+
   - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
     ansible.builtin.systemd:
       state: restarted
       daemon_reload: yes
-      name: kubelet 
+      name: kubelet

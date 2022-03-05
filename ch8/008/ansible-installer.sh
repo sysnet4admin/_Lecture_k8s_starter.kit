@@ -13,8 +13,11 @@ cat <<EOF > /etc/ansible/hosts
 EOF
 
 # ansible alias 
-echo "alias ans=ansible"          >> /root/.bashrc
-echo "alias anp=ansible-playbook" >> /root/.bashrc
+echo "alias ans=ansible"          >> ~/.bashrc
+echo "alias anp=ansible-playbook" >> ~/.bashrc
+
+# reload bashrc
+source ~/.bashrc
 
 #auto_pass to ansible_nodes 
 ##make a directory 
