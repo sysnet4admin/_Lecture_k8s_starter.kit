@@ -1,5 +1,5 @@
 ---
-- hosts: master
+- hosts: Master
   gather_facts: no
   vars:
     k8sver: 1.21.10
@@ -31,7 +31,7 @@
       daemon_reload: yes
       name: kubelet
 
-- hosts: worker
+- hosts: Workers
   gather_facts: no
   vars:
     k8sver: 1.21.10

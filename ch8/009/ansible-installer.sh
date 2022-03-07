@@ -5,19 +5,16 @@ yum install ansible-2.9.27-1.el7 -y
 
 # setup ansible hosts 
 cat <<EOF > /etc/ansible/hosts
-[master]
+[Master]
 192.168.1.10
 
-[worker]
+[Workers]
 192.168.1.[101:103]
 EOF
 
 # ansible alias 
 echo "alias ans=ansible"          >> ~/.bashrc
 echo "alias anp=ansible-playbook" >> ~/.bashrc
-
-# reload bashrc
-source ~/.bashrc
 
 #auto_pass to ansible_nodes 
 ##make a directory 
