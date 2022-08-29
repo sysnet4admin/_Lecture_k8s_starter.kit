@@ -1,8 +1,10 @@
 kubeadm upgrade plan 
 yum list kubeadm --showduplicates
-kubeadm upgrade apply 1.20.4
-yum upgrade -y kubeadm-1.20.4
-kubeadm upgrade apply 1.20.4
+kubeadm upgrade apply 1.25.1
+yum upgrade -y kubeadm-1.25.1
+kubeadm upgrade apply 1.25.1
+
+====== will change =====
 
 kubeadm version 
 kubeadm version: &version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.4", GitCommit:"faecb196815e248d3ecfb03c680a4507229c2a56", GitTreeState:"clean", BuildDate:"2021-01-13T13:25:59Z", GoVersion:"go1.15.5", Compiler:"gc", Platform:"linux/amd64"}
@@ -21,15 +23,15 @@ Server Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.4", GitCom
 
 
 kubelet --version 
-Kubernetes v1.20.2
+Kubernetes v1.25.1 
 
-yum upgrade kubelet-1.20.4 -y
+yum upgrade kubelet-1.25.1 -y
 
 
 ## After 
 
 [root@m-k8s ~]# kubelet --version 
-Kubernetes v1.20.4
+Kubernetes v1.25.1
 
 kubectl get node 
 NAME     STATUS   ROLES                  AGE   VERSION
