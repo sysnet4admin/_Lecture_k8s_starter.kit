@@ -3,7 +3,7 @@ systemctl stop kubelet
 systemctl status kubelet
 
 <m-k8s>
-kubectl apply -f ~/_Lecture_k8s.starterkit/ch4/4.1/del-deploy.yaml 
+kubectl apply -f ~/_Lecture_k8s_starter.kit/ch4/4.1/del-deploy.yaml 
 kubectl get pod -o wide 
 
 <w1-k8s>
