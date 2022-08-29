@@ -16,8 +16,8 @@ kubectl get pod -o wide
 ##################################
 
 <w1-k8s>
-systemctl stop docker 
-systemctl status docker
+systemctl stop containerd
+systemctl status containerd
 
 <m-k8s>
 kubectl scale deployment del-deploy --replicas=6
@@ -25,8 +25,8 @@ kubectl get pod -o wide
 
 ##################################
 <w1-k8s>
-systemctl start docker 
-systemctl status docker
+systemctl start containerd
+systemctl status continaerd 
 
 <m-k8s>
 kubectl scale deployment del-deploy --replicas=9
