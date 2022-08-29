@@ -1,8 +1,8 @@
 # All of sources From 
 # - https://github.com/metallb/metallb/blob/v0.12.1/manifests/metallb.yaml
 # - CRD cannot run instantly due to check  webhook readiness   
-# - thus I drive v0.12.1 which is latest without CRD 
-# - forcely 2 of PSP removed from deprecated reason from k8s's v.1.25 
+# - Thus I drive v0.12.1 for metallb which is latest without CRD 
+# - Forcely 2 PSP(s) removed because of deprecated reason from k8s's v1.25 
 # clone from above to sysnet4admin 
 
 apiVersion: v1
