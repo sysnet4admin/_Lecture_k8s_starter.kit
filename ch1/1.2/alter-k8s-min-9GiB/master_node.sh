@@ -2,7 +2,8 @@
 
 # init kubernetes 
 kubeadm init --token 123456.1234567890123456 --token-ttl 0 \
---pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.1.10
+--pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.1.10 \
+--cri-socket=unix:///run/containerd/containerd.sock
 
 # config for master node only 
 mkdir -p $HOME/.kube
@@ -23,6 +24,8 @@ kubectl completion bash >/etc/bash_completion.d/kubectl
 
 # alias kubectl to k 
 echo 'alias k=kubectl' >> ~/.bashrc
+echo "alias ka='kubectl apply -f'" >> ~/.bashrc
+echo "alias kd='kubectl delete -f'" >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
 # git clone k8s-code
