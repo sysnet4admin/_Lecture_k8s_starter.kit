@@ -2,7 +2,8 @@
 - hosts: Master
   gather_facts: no
   vars:
-    k8sver: 1.21.10
+    # whatever you want!!! in avaiable version 
+    k8sver: 1.25.1
 
   tasks:
 # original code 
@@ -34,7 +35,8 @@
 - hosts: Workers
   gather_facts: no
   vars:
-    k8sver: 1.21.10
+    # whatever you want!!! in avaiable version 
+    k8sver: 1.25.1
 
   tasks:
   - name: kubeadm upgrade to v{{ k8sver }}
