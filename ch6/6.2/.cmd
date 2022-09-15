@@ -1,3 +1,4 @@
+>>> From Master(Control-Plane) node
 kubeadm upgrade plan 
 yum list kubeadm --showduplicates
 kubeadm upgrade apply 1.25.1
@@ -58,4 +59,17 @@ m-k8s    Ready    control-plane   30m   v1.25.1
 w1-k8s   Ready    <none>          26m   v1.25.0
 w2-k8s   Ready    <none>          23m   v1.25.0
 w3-k8s   Ready    <none>          20m   v1.25.0
+
+>>> From worker nodes 
+
+[root@w1-k8s ~]# kubeadm upgrade node
+[upgrade] Reading configuration from the cluster...
+<snipped>
+[root@w1-k8s ~]# yum upgrade kubelet-1.25.1 -y
+[root@w1-k8s ~]# kubelet --version
+Kubernetes v1.25.1
+[root@w1-k8s ~]# systemctl restart kubelet
+Warning: kubelet.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+[root@w1-k8s ~]# systemctl daemon-reload
+
 
