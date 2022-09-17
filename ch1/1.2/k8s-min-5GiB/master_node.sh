@@ -25,8 +25,8 @@ kubectl completion bash >/etc/bash_completion.d/kubectl
 echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
-# git clone k8s-code
-git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
+# git clone -b v1.20 k8s-code
+git clone -b v1.20 https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
 mv /home/vagrant/_Lecture_k8s_starter.kit $HOME
 find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 
@@ -34,7 +34,7 @@ find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 cat <<EOF > /usr/local/bin/rerepo-k8s-starter.kit
 #!/usr/bin/env bash
 rm -rf $HOME/_Lecture_k8s_starter.kit 
-git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Lecture_k8s_starter.kit
+git clone -b v1.20 https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Lecture_k8s_starter.kit
 find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 EOF
 chmod 700 /usr/local/bin/rerepo-k8s-starter.kit
