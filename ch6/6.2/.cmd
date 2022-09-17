@@ -62,9 +62,12 @@ w2-k8s   Ready    <none>          23m   v1.25.0
 w3-k8s   Ready    <none>          20m   v1.25.0
 
 >>> From worker nodes 
+# optional due to current 'ClusterConfiguration' is default configuration. 
+# kubectl -n kube-system get cm kubeadm-config -o yaml
+##################################################
 [root@w1-k8s ~]# yum upgrade -y kubeadm-1.25.1
-
 [root@w1-k8s ~]# kubeadm upgrade node
+##################################################
 [upgrade] Reading configuration from the cluster...
 <snipped>
 [root@w1-k8s ~]# yum upgrade kubelet-1.25.1 -y
