@@ -10,13 +10,14 @@ kubeadm upgrade apply 1.25.1
 # Can be bypassed if you pass the --force flag
 # end; thus...
 yum upgrade -y kubeadm-1.25.1
-kubeadm upgrade apply 1.25.1 
-# [upgrade] Are you sure you want to proceed? [y/N]: y
-
-====== will change =====
 
 [root@m-k8s ~]# kubeadm version
 kubeadm version: &version.Info{Major:"1", Minor:"25", GitVersion:"v1.25.1", GitCommit:"e4d4e1ab7cf1bf15273ef97303551b279f0920a9", GitTreeState:"clean", BuildDate:"2022-09-14T19:47:53Z", GoVersion:"go1.19.1", Compiler:"gc", Platform:"linux/amd64"}
+
+kubeadm upgrade apply 1.25.1 
+# [upgrade] Are you sure you want to proceed? [y/N]: y
+
+====== will change??? =====
 
 [root@m-k8s ~]# kubectl get nodes 
 NAME     STATUS   ROLES           AGE   VERSION
