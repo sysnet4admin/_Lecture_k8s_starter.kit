@@ -20,10 +20,6 @@ repo_gpgcheck=0
 gpgkey=https://${gg_pkg}/yum-key.gpg https://${gg_pkg}/rpm-package-key.gpg
 EOF
 
-# add docker-ce repo
-yum install yum-utils -y 
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
 # Set SELinux in permissive mode (effectively disabling it)
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
@@ -31,7 +27,8 @@ sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 # RHEL/CentOS 7 have reported traffic issues being routed incorrectly due to iptables bypassed
 cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
 EOF
 modprobe br_netfilter
 
