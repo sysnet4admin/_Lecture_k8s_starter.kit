@@ -21,4 +21,4 @@ brew install --HEAD tabby-v1.0.187.rb
 cp config.yaml $env:APPDATA/tabby 
 
 # MacOS 
-cp config.yaml ~/Library/Application Support/tabby
+cp config.yaml ~/Library/Application\ Support/tabby
