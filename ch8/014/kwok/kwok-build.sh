@@ -61,6 +61,6 @@ kwokctl create cluster --name=demo
 kubectl config use-context kwok-demo 
 
 # Add 3 nodes for kwok 
-kubectl apply -f https://raw.githubusercontent.com/sysnet4admin/_Lecture_k8s_starter.kit/main/ch8/014/add-3-nodes.yaml
+kubectl apply -f https://raw.githubusercontent.com/sysnet4admin/_Lecture_k8s_starter.kit/main/ch8/014/add-9-bulk-nodes.yaml
 
 
