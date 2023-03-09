@@ -11,7 +11,7 @@ apt-get install -y \
         golang 
 
 # git clone the source 
-# https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
+git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git
 
 # KWOK!!! Variables preparation #
 ## KWOK repository
@@ -62,5 +62,4 @@ kubectl config use-context kwok-demo
 
 # Add 9 nodes for kwok 
 kubectl apply -f https://raw.githubusercontent.com/sysnet4admin/_Lecture_k8s_starter.kit/main/ch8/014/add-9-bulk-nodes-w-taints.yaml
-
 
