@@ -152,3 +152,8 @@ metadata:
     node-role.kubernetes.io/agent: ""
     type: kwok-controller
   name: w9-k8s
+spec:
+  taints:
+    - effect: NoSchedule
+      key: kwok-controller/provider
+      value: test
