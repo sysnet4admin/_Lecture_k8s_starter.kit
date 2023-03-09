@@ -17,9 +17,15 @@ Bringing machine 'kwok-cluster' up with 'virtualbox' provider...
 127.0.0.1:60230 으로 접속하면 됨  
 
 ```bash 
-root@kwok-cluster:~# k get node -o wide
-NAME          STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE    KERNEL-VERSION   CONTAINER-RUNTIME
-kwok-w1-k8s   Ready    agent   112s   fake      <none>        <none>        <unknown>   <unknown>        <unknown>
-kwok-w2-k8s   Ready    agent   112s   fake      <none>        <none>        <unknown>   <unknown>        <unknown>
-kwok-w3-k8s   Ready    agent   112s   fake      <none>        <none>        <unknown>   <unknown>        <unknown>
+root@kwok-cluster:~# k get node
+NAME     STATUS   ROLES   AGE   VERSION
+w1-k8s   Ready    agent   9m    fake
+w2-k8s   Ready    agent   9m    fake
+w3-k8s   Ready    agent   9m    fake
+w4-k8s   Ready    agent   9m    fake
+w5-k8s   Ready    agent   9m    fake
+w6-k8s   Ready    agent   9m    fake
+w7-k8s   Ready    agent   9m    fake
+w8-k8s   Ready    agent   9m    fake
+w9-k8s   Ready    agent   9m    fake
 ```
