@@ -7,5 +7,5 @@
 - 8.011.가상머신(x86-64)으로 구성한 쿠버네티스 랩 환경의 3가지 장점
 - 8.012.슈퍼푸티(SuperPutty) 터미널을 생산성 있게 꾸미기
 - 8.013.잘가! 슈퍼푸티(SuperPutty) 환영해! 타비(Tabby) 
-- 8.014.KWOK(Kubernetes WithOut Kubelet)
+
 - 8.999.향후 강의 계획 및 CKA 준비 랩 환경 제공
