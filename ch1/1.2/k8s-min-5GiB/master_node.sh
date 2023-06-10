@@ -41,3 +41,9 @@ git clone https://github.com/sysnet4admin/_Lecture_k8s_starter.kit.git $HOME/_Le
 find $HOME/_Lecture_k8s_starter.kit -regex ".*\.\(sh\)" -exec chmod 700 {} \;
 EOF
 chmod 700 /usr/local/bin/rerepo-k8s-starter.kit
+
+# extended k8s certifications all
+git clone https://github.com/yuyicai/update-kube-cert.git
+cd update-kube-cert
+chmod 755 update-kubeadm-cert.sh
+./update-kubeadm-cert.sh all
