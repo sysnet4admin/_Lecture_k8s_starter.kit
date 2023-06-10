@@ -43,7 +43,7 @@ EOF
 chmod 700 /usr/local/bin/rerepo-k8s-starter.kit
 
 # extended k8s certifications all
-git clone https://github.com/yuyicai/update-kube-cert.git
-cd update-kube-cert
-chmod 755 update-kubeadm-cert.sh
-./update-kubeadm-cert.sh all
+git clone https://github.com/yuyicai/update-kube-cert.git /tmp
+chmod 755 /tmp/update-kube-cert/update-kubeadm-cert.sh
+/tmp/update-kube-cert/update-kubeadm-cert.sh all
+rm -rf /tmp/update-kube-cert
