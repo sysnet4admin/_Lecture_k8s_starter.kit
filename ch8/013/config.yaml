@@ -390,32 +390,7 @@ terminal:
       - '#89DDFF'
       - '#ffffff'
   customColorSchemes: []
-ssh:
-  knownHosts:
-    - host: localhost
-      port: 60010
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
-    - host: localhost
-      port: 60101
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
-    - host: 127.0.0.1
-      port: 60010
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
-    - host: 127.0.0.1
-      port: 60101
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
-    - host: 127.0.0.1
-      port: 60102
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
-    - host: 127.0.0.1
-      port: 60103
-      type: ecdsa-sha2-nistp256
-      digest: l6XikZFgOibzSygqZ6+UYHUnEmjFEFhx7PpZw0I3WaM=
+ssh: {}
 configSync:
   parts: {}
 clickableLinks: {}
