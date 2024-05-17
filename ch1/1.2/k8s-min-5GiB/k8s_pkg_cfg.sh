@@ -1,39 +1,33 @@
 #!/usr/bin/env bash
 
-# install util packages 
-yum install epel-release -y
-yum install vim-enhanced -y
-yum install git -y
-yum install yum-utils -y 
+# avoid 'dpkg-reconfigure: unable to re-open stdin: No file or directory'
+export DEBIAN_FRONTEND=noninteractive
 
-# add docker-ce repo
-yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# update package list 
+apt-get update 
 
-# install docker & k8s runtime(containerd)
-yum install docker-ce-$2 docker-ce-cli-$2 containerd.io-$3 -y
+# install NFS 
+if [ $3 = 'CP' ]; then
+  apt-get install nfs-server nfs-common -y 
+elif [ $3 = 'W' ]; then
+  apt-get install nfs-common -y 
+fi
 
 # install kubernetes
 # both kubelet and kubectl will install by dependency
 # but aim to latest version. so fixed version by manually
-yum install kubelet-$1 kubectl-$1 kubeadm-$1 -y 
+apt-get install -y kubelet=$1 kubectl=$1 kubeadm=$1 containerd.io=$2
 
-# containerd configure to default
+# containerd configure to default and cgroup managed by systemd 
 containerd config default > /etc/containerd/config.toml
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
 
-# Fixed container runtime to containerd
-cat <<EOF > /etc/default/kubelet
-KUBELET_KUBEADM_ARGS=--container-runtime=remote \
-                     --container-runtime-endpoint=/run/containerd/containerd.sock \
-                     --cgroup-driver=systemd
-EOF
-
-# Avoid WARN&ERRO(default endpoints) when crictl run  
+# avoid WARN&ERRO(default endpoints) when crictl run  
 cat <<EOF > /etc/crictl.yaml
 runtime-endpoint: unix:///run/containerd/containerd.sock
 image-endpoint: unix:///run/containerd/containerd.sock
 EOF
 
-# Ready to install for k8s 
-systemctl enable --now docker
-systemctl enable --now containerd
+# ready to install for k8s 
+systemctl restart containerd ; systemctl enable containerd
 systemctl enable --now kubelet
