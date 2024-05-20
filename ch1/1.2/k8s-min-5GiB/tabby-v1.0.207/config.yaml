@@ -46,10 +46,10 @@ profiles:
       forwardedPorts: []
       scripts: []
     weight: -1
-    name: m-k8s
+    name: cp-k8s
     group: 쿠버네티스-클러스터(github_SysNet4Admin)
     color: '#23a1e0'
-    id: ssh:custom:m-k8s:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
+    id: ssh:custom:cp-k8s:0b16cf0c-bf56-47ca-b2ea-b6abbdb1223c
   - type: ssh
     icon: fas fa-desktop
     options:
