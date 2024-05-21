@@ -1,5 +1,5 @@
 ---
-- hosts: Control-Plane
+- hosts: Control_Plane
   gather_facts: no
   vars:
     # whatever you want!!! in avaiable version 

@@ -13,7 +13,7 @@ apt-get install ansible sshpass -y
 # setup default ansible hosts (Ubuntu only)
 mkdir /etc/ansible 
 cat <<EOF > /etc/ansible/hosts
-[Control-Plane]
+[Control_Plane]
 192.168.1.10
 
 [Workers]
