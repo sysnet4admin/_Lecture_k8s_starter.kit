@@ -1,0 +1,61 @@
+---
+- hosts: Control-Plane
+  gather_facts: no
+  vars:
+    # whatever you want!!! in avaiable version 
+    k8sver: 1.30.1
+
+  tasks:
+# original code 
+#  - name: kubeadm upgrade to v{{ k8sver }}
+#    command: "apt-get install kubeadm={{ k8sver }} -y"
+  - name: kubeadm upgrade to v{{ k8sver }}
+    ansible.builtin.apt:
+      name: kubeadm={{ k8sver }}
+      state: present
+
+  - name: kubernetes conplane plane node upgrade v{{ k8sver }}
+    command: "kubeadm upgrade apply {{ k8sver }} -y"
+
+#  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+#    command: "apt-get install kubelet={{ k8sver }} kubectl={{ k8sver }} -y"
+  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+    ansible.builtin.apt:
+      name:
+        - kubelet={{ k8sver }}
+        - kubectl={{ k8sver }}
+      state: present
+    
+  - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: kubelet
+
+- hosts: Workers
+  gather_facts: no
+  vars:
+    # whatever you want!!! in avaiable version 
+    k8sver: 1.30.1
+
+  tasks:
+  - name: kubeadm upgrade to v{{ k8sver }}
+    ansible.builtin.apt:
+      name: kubeadm={{ k8sver }}
+      state: present
+
+  - name: kubernetes worker nodes upgrade v{{ k8sver }}
+    command: "kubeadm upgrade node"
+
+  - name: kubelet && kubectl upgrade to v{{ k8sver }}
+    ansible.builtin.apt:
+      name:
+        - kubelet-{{ k8sver }}
+        - kubectl-{{ k8sver }}
+      state: present
+
+  - name: Restart service kubelet, in all cases, also issue daemon-reload to pick up config changes
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: kubelet
