@@ -37,7 +37,7 @@ if [ ! -f ~/.ssh/known_hosts ]; then
 fi
 
 ### 2.authorized_keys
-if [ ! -f ~/.ssh/authorized_keys ]; then
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
   ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ''
     for HOST in ${HOSTS[@]}; do 
        sshpass -p vagrant ssh-copy-id -f ${HOST}
