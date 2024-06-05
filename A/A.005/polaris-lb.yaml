@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: polaris
+    component: dashboard
+  name: polaris-lb
+  namespace: polaris
+spec:
+  ports:
+  - port: 8080        # 여긴 보통 맞추는데, 80으로 바꾸시면 web에서 80으로 접속하실수 있어요. 
+    targetPort: 8080  # 여기는 바꾸실수 없어요 바꾸려면 다시 컨테이너를 포장해야 되요 
+  selector:           # 여기 셀렉터가 안 맞아서 그런건데 매우 자세히는 지금 바로 설명은 어려울꺼 같아요. 다음 강의에서 ㅠㅠ 
+    app: polaris
+    component: dashboard
+  type: LoadBalancer
+

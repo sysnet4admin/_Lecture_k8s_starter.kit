@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sysnet4admin
+  name: sysnet4admin
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sysnet4admin
+  template:
+    metadata:
+      labels:
+        app: sysnet4admin
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
