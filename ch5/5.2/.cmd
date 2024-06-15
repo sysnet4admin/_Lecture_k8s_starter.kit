@@ -1,15 +1,33 @@
-kubectl delete deployment del-deploy 
+<w1-k8s>
+systemctl stop kubelet 
+systemctl status kubelet
 
-~/_Lecture_k8s_starter.kit/ch5/5.2/nfs-exporter.sh log 
-cat /etc/exports
+<m-k8s>
+kubectl apply -f ~/_Lecture_k8s_starter.kit/ch4/4.1/del-deploy.yaml 
+kubectl get pod -o wide 
 
-cat ~/_Lecture_k8s_starter.kit/ch5/5.2/dpy-chk-log.yaml 
-kubectl apply -f ~/_Lecture_k8s_starter.kit/ch5/5.2/dpy-chk-log.yaml 
+<w1-k8s>
+systemctl start kubelet 
+systemctl status kubelet
 
-kubectl get pods -o wide
-curl <IP>
+<m-k8s>
+kubectl get pod -o wide 
 
-kubectl exec dpy-chk-log-<ReplicaSet>-<HASH> -it -- /bin/bash
-kubectl delete pod dpy-chk-log-<ReplicaSet>-<HASH>
-kubectl exec dpy-chk-log-<ReplicaSet>-<HASH> -it -- /bin/bash
+##################################
 
+<w1-k8s>
+systemctl stop containerd
+systemctl status containerd
+
+<m-k8s>
+kubectl scale deployment del-deploy --replicas=6
+kubectl get pod -o wide 
+
+##################################
+<w1-k8s>
+systemctl start containerd
+systemctl status continaerd 
+
+<m-k8s>
+kubectl scale deployment del-deploy --replicas=9
+kubectl get pod -o wide 
