@@ -23,7 +23,7 @@ minikube start --force --driver=docker --nodes 2
 
 ## deploy pod & expose service on minikube
 k create deploy nginx --image nginx --replicas=2
-k expose po nginx --type=LoadBalancer --port=80
+k expose deployment nginx --type=LoadBalancer --port=80
 tunnel 
 
 ## node management 
