@@ -19,7 +19,7 @@
 - B: 보강 수업(v1.30 ~ )
 
 ***
-### Repo(레포)를 다시 내려받으신다면? 아래의 명령을 실행하세요 :) 
+### Repo(리포)를 다시 내려받으신다면? 아래의 명령을 실행하세요 :) 
 ```bash 
 [root@m-k8s ~]# rerepo-k8s-starter.kit
 Cloning into '/root/_Lecture_k8s_starter.kit'...
