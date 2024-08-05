@@ -1,6 +1,6 @@
 kubectl delete deployment del-deploy 
 
-~/_Lecture_k8s_starter.kit/ch5/5.2/nfs-exporter.sh log 
+~/_Lecture_k8s_starter.kit/ch5/5.2/nfs_exporter.sh log 
 cat /etc/exports
 
 cat ~/_Lecture_k8s_starter.kit/ch5/5.2/dpy-chk-log.yaml 
