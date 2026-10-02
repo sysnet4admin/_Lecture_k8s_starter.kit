@@ -32,3 +32,13 @@ remote: Total 323 (delta 118), reused 257 (delta 54), pack-reused 0
 Receiving objects: 100% (323/323), 59.66 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (118/118), done.
 ```
+
+***
+<p align="center">
+<a href="https://promo.kuberneteslab.dev/ko/">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://promo.kuberneteslab.dev/images/readme/banner-ko-dark.png">
+  <img src="https://promo.kuberneteslab.dev/images/readme/banner-ko-light.png" alt="리눅스 재단 자격증 할인 코드: CKA, CKS, MCPA 등 상시 30%, 더 큰 할인은 눌러서 확인" width="720">
+</picture>
+</a>
+</p>
