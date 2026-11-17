@@ -1,4 +1,4 @@
-kubectl apply -f ~/_Lecture_k8s_starter.kit/ch4/4.1
+kubectl apply -f ~/_Lecture_k8s_starter.kit/ch5/5.1
 
 kubectl get pods 
 
